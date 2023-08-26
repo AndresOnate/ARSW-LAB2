@@ -66,12 +66,28 @@ Taller.
     podrían salir resultados válidos, pero en otros se pueden presentar
     dichas inconsistencias). A partir de esto, identifique las regiones
     críticas () del programa.
+Podemos apreciar que existe una regón critica en la asignación de los puestos de llegada:
 
-3.  Utilice un mecanismo de sincronización para garantizar que a dichas
+![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/5604c87b-3a51-4aea-9dae-3d6a55e4b31d)
+
+Identificamos las siguientes regiones criticas, los hilos deben modificar los datos de posición y ultima posición de forma secuencial:
+
+![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/a42d9590-1f29-48a1-bdf6-2bfb6e8d4146)
+
+4.  Utilice un mecanismo de sincronización para garantizar que a dichas
     regiones críticas sólo acceda un hilo a la vez. Verifique los
     resultados.
 
-4.  Implemente las funcionalidades de pausa y continuar. Con estas,
+
+```
+				synchronized (regl){
+					int ubicacion=regl.getUltimaPosicionAlcanzada();
+					regl.setUltimaPosicionAlcanzada(ubicacion+1);
+					System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
+				}
+```
+
+6.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
