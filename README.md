@@ -16,8 +16,11 @@ Creación, puesta en marcha y coordinación de hilos.
 
 ![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/60df31cb-1ba6-4b04-b5af-ce45b9442044)
 
+Podemos apreciar un aumento en el uso de los porcesadores al ejecutar el algoritmo de solución con tres hilos.
 
 3. Lo que se le ha pedido es: debe modificar la aplicación de manera que cuando hayan transcurrido 5 segundos desde que se inició la ejecución, se detengan todos los hilos y se muestre el número de primos encontrados hasta el momento. Luego, se debe esperar a que el usuario presione ENTER para reanudar la ejecución de los mismo.
+
+![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/33be07f4-d5d3-454e-bf27-bb705738dc15)
 
 
 
