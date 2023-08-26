@@ -12,7 +12,7 @@ public class Main {
 		Boolean isRunning = true;
 		Object lock = new Object();
 		int totalThreads = 5;
-		int N = 30000;
+		int N = 30000000;
 		int initialValue = 0;
 		int range = (N + totalThreads - 1) / totalThreads;
 		for(int i = 0; i< totalThreads; i++){
