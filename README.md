@@ -39,6 +39,8 @@ logre tomar el ‘1’ será el ganador.
 
 Al iniciar la aplicación, hay un primer error evidente: los resultados (total recorrido y número del galgo ganador) son mostrados antes de que finalice la carrera como tal. Sin embargo, es posible que una vez corregido esto, haya más inconsistencias causadas por la presencia de condiciones de carrera.
 
+![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/3cffb22f-2a12-48cb-8b44-895d899396ff)
+
 Taller.
 
 1.  Corrija la aplicación para que el aviso de resultados se muestre
