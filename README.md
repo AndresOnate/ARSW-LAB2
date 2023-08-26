@@ -80,17 +80,56 @@ Identificamos las siguientes regiones criticas, los hilos deben modificar los da
 
 
 ```
-				synchronized (regl){
-					int ubicacion=regl.getUltimaPosicionAlcanzada();
-					regl.setUltimaPosicionAlcanzada(ubicacion+1);
-					System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
-				}
+synchronized (regl){
+	int ubicacion=regl.getUltimaPosicionAlcanzada();
+	regl.setUltimaPosicionAlcanzada(ubicacion+1);
+	System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
+}
 ```
 
 6.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
+
+Funcionalidad Pausa:
+```
+        can.setStopAction(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        for(Galgo galgo: galgos){
+                            galgo.setRunning(false);
+                        }
+                        System.out.println("Carrera pausada!");
+                    }
+                }
+        );
+```
+
+Funcionalidad Continuar:
+```
+        can.setContinueAction(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        synchronized (reg) {
+                            for(Galgo galgo: galgos){
+                                galgo.setRunning(true);
+                            }
+                            reg.notifyAll();
+                            System.out.println("Carrera reanudada!");
+                        }
+
+                    }
+                }
+        );
+```
+
+![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/defe6c95-619e-4714-8038-09e763049925)
+
+![image](https://github.com/AndresOnate/ARSW-LAB2/assets/63562181/8c4ef21b-ded8-4839-90ea-b3daa31194ff)
+
 
 
 ## Criterios de evaluación
